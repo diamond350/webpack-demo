@@ -11,10 +11,20 @@ module.exports={
     },
     devServer: {
         publicPath: "/static/",
-        stats: { colors: true },
+        stats: {colors: true},
         port: 8080,
         contentBase: 'build',
-        inline: true
-    }
+        inline: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080',
+                secure: false,
+               // pathRewrite: {'^/api2' : ''}
+
+                pathRewrite:{'/api/(.*)':'$1\.json'}
+            }
+        }
+
+    },
 
 }
