@@ -1,6 +1,9 @@
 import React,{ Component } from 'react';
-import  {render} from 'react-dom';
+import  ReactDOM,{render} from 'react-dom';
+/*import * as Com from './component';
+console.log(Com);*/
 
+import Button from './components/Button/Button';
 class App extends  Component{
 
     render(){
@@ -10,4 +13,6 @@ class App extends  Component{
     }
 }
 let root = document.getElementById('app');
-render(<App />,root);
+/*
+render(<App />,root);*/
+ReactDOM.render( <Button />, root );

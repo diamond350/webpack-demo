@@ -6,8 +6,21 @@ module.exports={
     },
     module: {
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+            {
+                test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader" //在 ".css" files中使用"style" and "css" loader
+            },
+            {
+                test: /\.less/,
+                loader: "style-loader!css-loader!less-loader"
+            }
         ]
+    },
+    resolve: {
+        extensions: ["", ".js", ".jsx", ".css", ".json"],   //  "" 空字符串表示带后缀的可以被解析到  .js,.jsx表示在引入后缀为js,jsx的库的时候可以不用添加后缀
     },
     devServer: {
         publicPath: "/static/",
