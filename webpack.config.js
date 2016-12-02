@@ -1,9 +1,18 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports={
     entry:'./src/index.js',
     output:{
         path:'./build',
         filename:'bundle.js'
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'My App',
+            /*filename: './src/index.html'*/  //创建文件
+            template: './src/index.html'  //模板
+        })
+    ],
+    devtool: 'cheap-module-source-map',
     module: {
         loaders: [
             {
@@ -38,6 +47,8 @@ module.exports={
             }
         }
 
-    },
+    }
+
+
 
 }
